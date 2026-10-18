@@ -10,6 +10,7 @@ Classifies a dancer's posture (good, arching, slouching) from side-view video, u
 
 ## Files
 - `assignment-1.ipynb`: the notebook (modeling, figures, write-up).
+- `extract_features.py`: turns the videos into the CSV (MediaPipe Pose, hip-spine angle every 5th frame).
 - `tango_posture_dataset.csv`: extracted features read by the notebook.
 - `tango_factorial_matrices_v4.png`: confusion matrices for all conditions and models.
 - `figures/tango_pipeline_diagram.png`: pipeline diagram.
@@ -18,4 +19,9 @@ Classifies a dancer's posture (good, arching, slouching) from side-view video, u
 ```
 pip install mediapipe==0.10.14 opencv-python numpy pandas matplotlib seaborn scikit-learn tabulate
 ```
-Open the notebook from inside the `assignment1/` folder so it finds the CSV and the diagram. The raw `.MOV` videos are not included in this repo.
+Open the notebook from inside the `assignment1/` folder so it finds the CSV and the diagram. The raw `.MOV` videos are not included in this repo, so the notebook runs from the CSV.
+
+To regenerate the CSV from the videos (named as listed in `extract_features.py`):
+```
+python extract_features.py --video-dir path/to/videos --output tango_posture_dataset.csv
+```
